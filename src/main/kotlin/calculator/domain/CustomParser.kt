@@ -6,4 +6,5 @@ class CustomParser : Parser{
         return parseByCustomSeparator(separator, command)
     }
 
+    fun recognizeSeparator(command: String): String = command.substringAfter("//").substringBefore("\\n")
 }
