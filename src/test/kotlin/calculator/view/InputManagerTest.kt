@@ -3,6 +3,7 @@ package calculator.view
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.io.ByteArrayInputStream
+import calculator.view.InputManager
 
 class InputManagerTest {
     @Test
@@ -13,7 +14,8 @@ class InputManagerTest {
         System.setIn(inputStream)
 
         // when: 함수 실행
-        val result = InputManager.inputFromUser()
+        val inputManager = InputManager()
+        val result = inputManager.inputCommandFromUser()
 
         // then: 반환값 검증
         assertTrue(result is String)

@@ -1,5 +1,7 @@
 package calculator.view
 
-class InputManager {
+import camp.nextstep.edu.missionutils.Console
 
+class InputManager {
+    fun inputCommandFromUser() = Console.readLine()
 }
