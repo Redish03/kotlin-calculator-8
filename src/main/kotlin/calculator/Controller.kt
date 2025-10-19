@@ -10,9 +10,17 @@ class Controller {
 
     fun run() {
         val command = inputManager.inputCommandFromUser()
-        val numbers = parseCommand(command)
+        try {
+            isSatisfyCondition(command)
+            val numbers = parseCommand(command)
+            OutputManager().printResult(sumManager.addAll(numbers))
+        } catch (e: IllegalArgumentException) {
 
-        OutputManager().printResult(sumManager.addAll(numbers))
+        }
+    }
+
+    private fun isSatisfyCondition(command: String) {
+        TODO("Not yet implemented")
     }
 
     fun parseCommand(command: String) : List<Int> {
