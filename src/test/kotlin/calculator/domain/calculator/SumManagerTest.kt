@@ -11,7 +11,7 @@ class SumManagerTest {
         val expectedAnswer = 14
 
         // when:
-        val calculator = SumManager.addAll(numbers)
+        val calculator = SumManager().addAll(numbers)
 
         // then:
         assertEquals(calculator, expectedAnswer)
