@@ -3,6 +3,7 @@ package calculator
 import calculator.domain.Parser
 import calculator.domain.calculator.SumManager
 import calculator.view.InputManager
+import calculator.view.OutputManager
 
 class Controller {
     val inputManager: InputManager = InputManager()
