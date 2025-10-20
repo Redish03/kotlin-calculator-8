@@ -2,6 +2,7 @@ package calculator.domain
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class CustomParserTest {
     @Test
@@ -41,5 +42,23 @@ class CustomParserTest {
 
         // then:
         assertEquals(result, expectedResult)
+    }
+
+    @Test
+    fun `주어진 명령어에 빈칸과 숫자가 섞여있다면 IllegalArgumentException을 발생시킨다` () {
+        val testCommand = "//;\\n1;;3"
+
+        assertThrows<IllegalArgumentException> {
+            CustomParser().parseBySeparator(testCommand)
+        }
+    }
+
+    @Test
+    fun `주어진 명령어에 숫자가 아닌 값이 있다면 IllegalArgumentException을 발생시킨다` () {
+        val testCommand = "//;\\n1;a;3"
+
+        assertThrows<IllegalArgumentException> {
+            CustomParser().parseBySeparator(testCommand)
+        }
     }
 }
