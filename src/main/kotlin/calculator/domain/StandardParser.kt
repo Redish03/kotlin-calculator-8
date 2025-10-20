@@ -14,11 +14,12 @@ class StandardParser : Parser {
 
     fun checkEmptyCommand(command: String) {
         if (command == null) throw IllegalArgumentException("Command cannot be null")
-        if (command == "") throw IllegalArgumentException("Command can't be empty")
+        if (command == EMPTY_STRING) throw IllegalArgumentException("Command can't be empty")
     }
 
     companion object {
         const val COMMA_DELIMITER = ','
         const val COLON_DELIMITER = ':'
+        const val EMPTY_STRING = ""
     }
 }

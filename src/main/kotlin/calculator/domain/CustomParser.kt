@@ -20,11 +20,12 @@ class CustomParser : Parser{
 
     fun checkEmptyCommand(command: String) {
         if (command == null) throw IllegalArgumentException("Command cannot be null")
-        if (command == "") throw IllegalArgumentException("Command can't be empty")
+        if (command == EMPTY_STRING) throw IllegalArgumentException("Command can't be empty")
     }
 
     companion object {
         const val CUSTOM_SEPARATOR_PREFIX: String = "//"
         const val CUSTOM_SEPARATOR_TERMINATOR: String = "\\n"
+        const val EMPTY_STRING = ""
     }
 }
