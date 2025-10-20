@@ -28,7 +28,7 @@ class Controller(private val parserClassifier: ParserClassifier) {
     }
 
     fun parseCommand(command: String) : List<Int> {
-        val parser: Parser = parserClassifier.create(command)
-        return parser.parseBySeparator(command)
+        val commandParser: Parser = parserClassifier.create(command)
+        return commandParser.parseBySeparator(command)
     }
 }
