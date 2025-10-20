@@ -22,6 +22,13 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `숫자가 2개 이상 주어졌을 때 모두 더한다`() {
+        assertSimpleTest {
+            run("1:2,3")
+        }
+    }
+
     override fun runMain() {
         main()
     }
