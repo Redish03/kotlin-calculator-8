@@ -1,5 +1,11 @@
 package calculator
 
+import calculator.domain.NumberValidator
+import calculator.domain.ParserClassifier
+
 fun main() {
-    // TODO: 프로그램 구현
+    Controller(
+        parserClassifier = ParserClassifier(),
+        numberValidator = NumberValidator()
+    ).run()
 }
