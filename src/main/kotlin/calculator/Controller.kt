@@ -6,7 +6,7 @@ import calculator.domain.calculator.SumManager
 import calculator.view.InputManager
 import calculator.view.OutputManager
 
-class Controller {
+class Controller(private val parserClassifier: ParserClassifier) {
     val outputManager = OutputManager()
     val inputManager = InputManager()
     val sumManager: SumManager = SumManager()
