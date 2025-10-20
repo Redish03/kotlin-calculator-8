@@ -45,6 +45,14 @@ class CustomParserTest {
     }
 
     @Test
+    fun `여러 개의 커스텀 구분자를 넣을 경우 IllegalArgumentException을 발생시킨다`() {
+        val testCommand = "//,;\\n1;;2;;3"
+        assertThrows<IllegalArgumentException> {
+             CustomParser().parseBySeparator(testCommand)
+        }
+    }
+
+    @Test
     fun `주어진 명령어에 빈칸과 숫자가 섞여있다면 IllegalArgumentException을 발생시킨다` () {
         val testCommand = "//;\\n1;;3"
 

@@ -4,6 +4,7 @@ class CustomParser : Parser{
     override fun parseBySeparator(command: String): List<Int> {
         checkEmptyCommand(command)
         val separator = recognizeSeparator(command)
+        checkSeparator(separator)
         val result = parseByCustomSeparator(separator, command)
 
         return result
@@ -23,9 +24,14 @@ class CustomParser : Parser{
         if (command == EMPTY_STRING) throw IllegalArgumentException("Command can't be empty")
     }
 
+    fun checkSeparator(separator: String) {
+        if(separator.length > MAX_SEPARATOR) throw IllegalArgumentException("Separator cannot be over two")
+    }
+
     companion object {
         const val CUSTOM_SEPARATOR_PREFIX: String = "//"
         const val CUSTOM_SEPARATOR_TERMINATOR: String = "\\n"
         const val EMPTY_STRING = ""
+        const val MAX_SEPARATOR = 1
     }
 }
