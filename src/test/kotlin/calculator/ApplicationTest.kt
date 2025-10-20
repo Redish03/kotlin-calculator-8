@@ -29,6 +29,15 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `커스텀 구분자 사용 시 여러 개의 문자를 입력하면 예외 발생`() {
+        assertSimpleTest {
+            assertSimpleTest {
+                assertThrows<IllegalArgumentException> { runException("//;;\\n1") }
+            }
+        }
+    }
+
     override fun runMain() {
         main()
     }
